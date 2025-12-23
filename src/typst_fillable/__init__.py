@@ -135,35 +135,57 @@ def make_fillable(
     template_path = Path(template)
     root_path = Path(root) if root else None
 
-    # Step 1: Compile template or use provided PDF
-    if pdf_bytes is None:
-        base_pdf = compile_template(template_path, context=context, root=root_path)
-    else:
-        base_pdf = pdf_bytes
+    # Create temp directory for compilation and metadata extraction
+    # Both need context.json to exist for the template to compile
+    temp_dir = Path(tempfile.mkdtemp())
+    try:
+        # Setup temp directory with template and context.json
+        if root_path:
+            temp_root = temp_dir / "template"
+            shutil.copytree(root_path, temp_root)
+            temp_template = temp_root / template_path.name
+        else:
+            temp_root = temp_dir
+            temp_template = temp_dir / template_path.name
+            shutil.copy(template_path, temp_template)
 
-    # Step 2: Extract field metadata
-    fields = extract_field_metadata(template_path, root=root_path)
+        # Write context.json (empty dict if not provided)
+        context_file = temp_template.parent / "context.json"
+        with open(context_file, "w") as f:
+            json.dump(context if context is not None else {}, f)
 
-    if not fields:
-        # No fields to add, return base PDF as-is
-        return base_pdf
+        # Step 1: Compile template or use provided PDF
+        if pdf_bytes is None:
+            base_pdf = typst.compile(str(temp_template), root=str(temp_root))
+        else:
+            base_pdf = pdf_bytes
 
-    # Step 3: Get page count from base PDF
-    reader = PdfReader(BytesIO(base_pdf))
-    page_count = len(reader.pages)
+        # Step 2: Extract field metadata (using same temp directory with context.json)
+        fields = extract_field_metadata(temp_template, root=temp_root)
 
-    # Get page size from first page
-    first_page = reader.pages[0]
-    page_width = float(first_page.mediabox.width)
-    page_height = float(first_page.mediabox.height)
+        if not fields:
+            # No fields to add, return base PDF as-is
+            return base_pdf
 
-    # Step 4: Create form overlay
-    overlay = create_form_overlay(
-        fields=fields,
-        page_count=page_count,
-        page_size=(page_width, page_height),
-        style=style,
-    )
+        # Step 3: Get page count from base PDF
+        reader = PdfReader(BytesIO(base_pdf))
+        page_count = len(reader.pages)
 
-    # Step 5: Merge base PDF with overlay
-    return merge_with_overlay(base_pdf, overlay)
+        # Get page size from first page
+        first_page = reader.pages[0]
+        page_width = float(first_page.mediabox.width)
+        page_height = float(first_page.mediabox.height)
+
+        # Step 4: Create form overlay
+        overlay = create_form_overlay(
+            fields=fields,
+            page_count=page_count,
+            page_size=(page_width, page_height),
+            style=style,
+        )
+
+        # Step 5: Merge base PDF with overlay
+        return merge_with_overlay(base_pdf, overlay)
+
+    finally:
+        shutil.rmtree(temp_dir, ignore_errors=True)
