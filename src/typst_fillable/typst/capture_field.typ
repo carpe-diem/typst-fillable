@@ -1,5 +1,5 @@
 // typst-fillable: Form field capture for fillable PDFs
-// https://github.com/albertopaparelli/typst-fillable
+// https://github.com/carpe-diem/typst-fillable
 
 /// Capture a form field's position and metadata for fillable PDF generation.
 ///

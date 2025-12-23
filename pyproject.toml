@@ -40,10 +40,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/albertopaparelli/typst-fillable"
-Documentation = "https://github.com/albertopaparelli/typst-fillable#readme"
-Repository = "https://github.com/albertopaparelli/typst-fillable"
-Issues = "https://github.com/albertopaparelli/typst-fillable/issues"
+Homepage = "https://github.com/carpe-diem/typst-fillable"
+Documentation = "https://github.com/carpe-diem/typst-fillable#readme"
+Repository = "https://github.com/carpe-diem/typst-fillable"
+Issues = "https://github.com/carpe-diem/typst-fillable/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/typst_fillable"]

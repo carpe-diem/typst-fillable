@@ -1,7 +1,7 @@
 # typst-fillable
 
-[![CI](https://github.com/albertopaparelli/typst-fillable/actions/workflows/ci.yml/badge.svg)](https://github.com/albertopaparelli/typst-fillable/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/albertopaparelli/typst-fillable/branch/main/graph/badge.svg)](https://codecov.io/gh/albertopaparelli/typst-fillable)
+[![CI](https://github.com/carpe-diem/typst-fillable/actions/workflows/ci.yml/badge.svg)](https://github.com/carpe-diem/typst-fillable/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/carpe-diem/typst-fillable/branch/main/graph/badge.svg)](https://codecov.io/gh/carpe-diem/typst-fillable)
 [![PyPI version](https://badge.fury.io/py/typst-fillable.svg)](https://badge.fury.io/py/typst-fillable)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -261,7 +261,7 @@ python generate.py
 
 ```bash
 # Clone the repository
-git clone https://github.com/albertopaparelli/typst-fillable.git
+git clone https://github.com/carpe-diem/typst-fillable.git
 cd typst-fillable
 
 # Install development dependencies
@@ -286,13 +286,13 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## Contributors
 
-<a href="https://github.com/albertopaparelli/typst-fillable/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=albertopaparelli/typst-fillable" />
+<a href="https://github.com/carpe-diem/typst-fillable/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=carpe-diem/typst-fillable" />
 </a>
 
 ## Author
 
-**Alberto Paparelli** ([@carpedev](https://github.com/albertopaparelli))
+**Alberto Paparelli** ([@carpe-diem](https://github.com/carpe-diem))
 
 ---
 
