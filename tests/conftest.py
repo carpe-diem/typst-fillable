@@ -4,6 +4,7 @@ from io import BytesIO
 
 import pytest
 from pypdf import PdfWriter
+
 from typst_fillable.models import FieldMetadata, FieldPosition
 
 
