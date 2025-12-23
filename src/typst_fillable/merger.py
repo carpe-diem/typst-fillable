@@ -36,10 +36,9 @@ def merge_with_overlay(base_pdf: bytes, form_overlay: BytesIO) -> bytes:
             writer.add_page(page)
 
         # Copy AcroForm from overlay to preserve form fields
-        if "/AcroForm" in overlay_reader.trailer["/Root"]:
-            writer._root_object[NameObject("/AcroForm")] = overlay_reader.trailer["/Root"][
-                "/AcroForm"
-            ]
+        root_obj = overlay_reader.trailer["/Root"]
+        if hasattr(root_obj, "__contains__") and "/AcroForm" in root_obj:
+            writer._root_object[NameObject("/AcroForm")] = root_obj["/AcroForm"]  # type: ignore[index]
 
         output = BytesIO()
         writer.write(output)

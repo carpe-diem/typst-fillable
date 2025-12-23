@@ -55,7 +55,7 @@ def create_form_overlay(
 
         for page_num in range(1, page_count + 1):
             page_fields = fields_by_page.get(page_num, [])
-            radio_groups: dict[str, list[dict]] = {}
+            radio_groups: dict[str, list[dict[str, object]]] = {}
 
             for field in page_fields:
                 field_width = field.dimensions.get("width", 100)
@@ -177,7 +177,7 @@ def create_form_overlay(
                         selected=False,
                         annotationFlags="print",
                     )
-                    all_radio_groups[group_name].append(button["value"])
+                    all_radio_groups[group_name].append(str(button["value"]))
 
             c.showPage()
 

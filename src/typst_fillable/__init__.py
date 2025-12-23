@@ -47,7 +47,7 @@ __all__ = [
 
 def compile_template(
     template: str | Path,
-    context: dict | None = None,
+    context: dict[str, object] | None = None,
     root: str | Path | None = None,
 ) -> bytes:
     """
@@ -97,7 +97,7 @@ def compile_template(
 
 def make_fillable(
     template: str | Path,
-    context: dict | None = None,
+    context: dict[str, object] | None = None,
     root: str | Path | None = None,
     pdf_bytes: bytes | None = None,
     style: FieldStyle | None = None,
