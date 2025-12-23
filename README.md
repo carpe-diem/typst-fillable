@@ -259,26 +259,129 @@ python generate.py
 
 ## Development
 
+### Setting up the development environment
+
+This project uses [uv](https://github.com/astral-sh/uv) for fast and reliable Python package management. If you don't have `uv` installed yet:
+
+```bash
+# Install uv (macOS/Linux)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Or with pip
+pip install uv
+```
+
+#### Clone and setup
+
 ```bash
 # Clone the repository
 git clone https://github.com/carpe-diem/typst-fillable.git
 cd typst-fillable
 
+# Create a virtual environment and install dependencies with uv
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install the package in editable mode with dev dependencies
+uv pip install -e ".[dev]"
+```
+
+#### Alternative: Using pip
+
+If you prefer to use pip:
+
+```bash
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
 # Install development dependencies
 pip install -e ".[dev]"
+```
 
+### Running tests and checks
+
+```bash
 # Run tests
 pytest
 
-# Run tests with coverage
-pytest --cov=src/typst_fillable
+# Run tests with coverage report
+pytest --cov=src/typst_fillable --cov-report=term-missing
 
 # Run linter
 ruff check .
 
+# Auto-fix linting issues
+ruff check . --fix
+
+# Format code
+ruff format .
+
 # Type check
 mypy src/
 ```
+
+### Project structure
+
+```
+typst-fillable/
+├── src/typst_fillable/    # Main package source code
+├── tests/                 # Test suite
+├── examples/              # Example forms and usage
+├── pyproject.toml         # Project configuration
+└── README.md             # This file
+```
+
+## Contributing
+
+Contributions are welcome! Here's how you can help:
+
+### Reporting bugs
+
+If you find a bug, please [open an issue](https://github.com/carpe-diem/typst-fillable/issues) with:
+- A clear description of the problem
+- Steps to reproduce the issue
+- Expected vs actual behavior
+- Your Python and Typst versions
+
+### Suggesting features
+
+Feature requests are welcome! Please [open an issue](https://github.com/carpe-diem/typst-fillable/issues) describing:
+- The use case for the feature
+- How it would work
+- Any alternatives you've considered
+
+### Submitting pull requests
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/amazing-feature`)
+3. Set up your development environment (see Development section above)
+4. Make your changes
+5. Run tests and checks to ensure everything passes:
+   ```bash
+   pytest
+   ruff check .
+   mypy src/
+   ```
+6. Commit your changes (`git commit -m 'Add amazing feature'`)
+7. Push to your branch (`git push origin feature/amazing-feature`)
+8. Open a Pull Request
+
+### Code style
+
+- We use [Ruff](https://docs.astral.sh/ruff/) for linting and formatting
+- We use [mypy](https://mypy-lang.org/) for type checking
+- Follow PEP 8 guidelines
+- Add type hints to all functions
+- Write docstrings for public APIs
+- Keep line length to 100 characters
+
+### Testing
+
+- Write tests for new features and bug fixes
+- Ensure test coverage remains high
+- Use descriptive test names
+- Add integration tests for end-to-end scenarios
 
 ## License
 
