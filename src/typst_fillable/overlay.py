@@ -80,10 +80,10 @@ def create_form_overlay(
                     field_height -= 1
 
                 # Convert Typst Y coordinate to PDF Y coordinate
-                # Typst: Y increases downward from top
-                # PDF: Y increases upward from bottom
+                # Typst: Y increases downward from top of page
+                # PDF: Y increases upward from bottom of page
                 absolute_x = field.pos.x + offset_x
-                adjusted_y = field.pos.y - 50.0  # Alignment adjustment
+                adjusted_y = field.pos.y  # Y from Typst already includes margin
                 pdf_y = page_height - adjusted_y - field_height + offset_y
 
                 # Calculate space for prefix/suffix
