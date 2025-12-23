@@ -11,7 +11,7 @@ from .models import FieldMetadata, FieldPosition
 
 def parse_typst_length(value: Any) -> float:
     """Convert Typst length string (e.g., '40pt') to float in points."""
-    if isinstance(value, (int, float)):
+    if isinstance(value, int | float):
         return float(value)
     if isinstance(value, str):
         return float(value.rstrip("pt"))

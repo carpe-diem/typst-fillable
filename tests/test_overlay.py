@@ -2,9 +2,7 @@
 
 from io import BytesIO
 
-import pytest
 from pypdf import PdfReader
-
 from typst_fillable.models import FieldMetadata, FieldPosition, FieldStyle
 from typst_fillable.overlay import create_form_overlay
 

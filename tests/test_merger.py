@@ -2,9 +2,7 @@
 
 from io import BytesIO
 
-import pytest
 from pypdf import PdfReader, PdfWriter
-
 from typst_fillable.merger import merge_with_overlay
 from typst_fillable.models import FieldMetadata, FieldPosition
 from typst_fillable.overlay import create_form_overlay
@@ -87,7 +85,7 @@ class TestMergeWithOverlay:
         # Create a base PDF with some content
         buffer = BytesIO()
         writer = PdfWriter()
-        page = writer.add_blank_page(width=612, height=792)
+        writer.add_blank_page(width=612, height=792)
         # Note: We can't easily add visible content in tests,
         # but we verify the page dimensions are preserved
         writer.write(buffer)

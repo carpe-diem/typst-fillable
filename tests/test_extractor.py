@@ -4,8 +4,6 @@ import json
 from pathlib import Path
 from unittest.mock import patch
 
-import pytest
-
 from typst_fillable.extractor import extract_field_metadata, parse_typst_length
 
 

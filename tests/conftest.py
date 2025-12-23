@@ -1,9 +1,9 @@
 """Pytest fixtures for typst-fillable tests."""
 
-import pytest
 from io import BytesIO
-from pypdf import PdfWriter
 
+import pytest
+from pypdf import PdfWriter
 from typst_fillable.models import FieldMetadata, FieldPosition
 
 

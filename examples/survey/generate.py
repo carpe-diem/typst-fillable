@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Generate fillable survey PDF."""
 
-from pathlib import Path
 import sys
+from pathlib import Path
+
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from typst_fillable import make_fillable
