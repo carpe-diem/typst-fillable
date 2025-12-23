@@ -1,5 +1,11 @@
 # typst-fillable
 
+[![CI](https://github.com/albertopaparelli/typst-fillable/actions/workflows/ci.yml/badge.svg)](https://github.com/albertopaparelli/typst-fillable/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/albertopaparelli/typst-fillable/branch/main/graph/badge.svg)](https://codecov.io/gh/albertopaparelli/typst-fillable)
+[![PyPI version](https://badge.fury.io/py/typst-fillable.svg)](https://badge.fury.io/py/typst-fillable)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Add interactive form fields to Typst-generated PDFs.
 
 ## Overview
@@ -239,13 +245,23 @@ For fields inside table cells that should expand to fill the cell:
 
 See the `examples/` directory for complete working examples:
 
-- `simple_form/` - Basic contact form with all field types
+- `contact_form/` - Professional contact form with sections, radio buttons, and checkboxes
+- `survey/` - Customer satisfaction survey with rating scales (1-5) and multiple choice
+- `contract/` - Service agreement with signature boxes and legal checkboxes
+- `invoice/` - Invoice with line items table, currency fields, and totals
+
+Each example can be run with:
+
+```bash
+cd examples/<name>
+python generate.py
+```
 
 ## Development
 
 ```bash
 # Clone the repository
-git clone https://github.com/counterpart/typst-fillable.git
+git clone https://github.com/albertopaparelli/typst-fillable.git
 cd typst-fillable
 
 # Install development dependencies
@@ -253,6 +269,9 @@ pip install -e ".[dev]"
 
 # Run tests
 pytest
+
+# Run tests with coverage
+pytest --cov=src/typst_fillable
 
 # Run linter
 ruff check .
@@ -265,6 +284,16 @@ mypy src/
 
 MIT License - see [LICENSE](LICENSE) for details.
 
-## Credits
+## Contributors
 
-Developed by [Counterpart](https://yourcounterpart.com).
+<a href="https://github.com/albertopaparelli/typst-fillable/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=albertopaparelli/typst-fillable" />
+</a>
+
+## Author
+
+**Alberto Paparelli** ([@carpedev](https://github.com/albertopaparelli))
+
+---
+
+If you find this project useful, please consider giving it a star!
