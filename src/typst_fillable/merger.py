@@ -3,7 +3,6 @@
 from io import BytesIO
 
 from pypdf import PdfReader, PdfWriter
-from pypdf.generic import NameObject
 
 
 def merge_with_overlay(base_pdf: bytes, form_overlay: BytesIO) -> bytes:
@@ -29,16 +28,28 @@ def merge_with_overlay(base_pdf: bytes, form_overlay: BytesIO) -> bytes:
 
         writer = PdfWriter()
 
-        # Merge pages
-        for i, page in enumerate(base_reader.pages):
-            if i < len(overlay_reader.pages):
-                page.merge_page(overlay_reader.pages[i])
+        # Add base pages first
+        for page in base_reader.pages:
             writer.add_page(page)
 
-        # Copy AcroForm from overlay to preserve form fields
-        root_obj = overlay_reader.trailer["/Root"]
-        if hasattr(root_obj, "__contains__") and "/AcroForm" in root_obj:
-            writer._root_object[NameObject("/AcroForm")] = root_obj["/AcroForm"]  # type: ignore[index]
+        # Append the overlay - this preserves form field structure including radio groups
+        writer.append(form_overlay)
+
+        # Remove the duplicate blank pages from the overlay
+        # The overlay pages are added after the base pages
+        num_base_pages = len(base_reader.pages)
+        num_total_pages = len(writer.pages)
+
+        # We need to merge overlay content onto base pages, then remove overlay pages
+        for i in range(num_base_pages):
+            overlay_page_idx = num_base_pages + i
+            if overlay_page_idx < num_total_pages:
+                # Merge overlay page content onto base page
+                writer.pages[i].merge_page(writer.pages[overlay_page_idx])
+
+        # Remove the extra overlay pages (iterate in reverse to not mess up indices)
+        for i in range(num_total_pages - 1, num_base_pages - 1, -1):
+            del writer.pages[i]
 
         output = BytesIO()
         writer.write(output)

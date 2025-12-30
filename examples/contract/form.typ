@@ -72,153 +72,153 @@
 // ============ HELPERS ============
 #let inline_field(name, width: 150pt) = {
   capture_field(field_name: name, field_type: "text")[
-    #box(width: width, height: 20pt, stroke: (bottom: 0.5pt + border_color), inset: (bottom: 2pt))[
-      #text(size: 10pt)[#get(ctx, name)]
+    #box(width: width, height: 14pt, stroke: (bottom: 0.5pt + border_color), inset: (bottom: 1pt))[
+      #text(size: 8pt)[#get(ctx, name)]
     ]
   ]
 }
 
 // ============ PAGE SETUP ============
-#set page(margin: (top: 2.5cm, bottom: 2.5cm, left: 2.5cm, right: 2.5cm))
-#set text(font: "Helvetica", size: 10pt, fill: text_dark)
-#set par(justify: true, leading: 0.8em)
+#set page(margin: (top: 1.8cm, bottom: 1.8cm, left: 2cm, right: 2cm))
+#set text(font: "Helvetica", size: 9pt, fill: text_dark)
+#set par(justify: true, leading: 0.65em)
 
 // ============ HEADER ============
 #align(center)[
-  #text(size: 20pt, weight: "bold", fill: primary)[SERVICE AGREEMENT]
-  #v(4pt)
-  #text(size: 10pt, fill: text_muted)[Contract Reference: SA-2024-001]
-]
-
-#v(1cm)
-
-// ============ PARTIES ============
-#text(size: 11pt, weight: "bold", fill: primary)[1. PARTIES]
-#v(0.3cm)
-
-This Service Agreement ("Agreement") is entered into on #inline_field("effective_date", width: 100pt) by and between:
-
-#v(0.4cm)
-
-#box(fill: primary_light, width: 100%, inset: 12pt, radius: 4pt)[
-  #grid(
-    columns: (80pt, 1fr),
-    row-gutter: 10pt,
-    text(weight: "medium")[Provider:], inline_field("provider_name", width: 100%),
-    text(weight: "medium")[Address:], inline_field("provider_address", width: 100%),
-    text(weight: "medium")[Email:], inline_field("provider_email", width: 200pt),
-  )
-]
-
-#v(0.4cm)
-
-#box(fill: primary_light, width: 100%, inset: 12pt, radius: 4pt)[
-  #grid(
-    columns: (80pt, 1fr),
-    row-gutter: 10pt,
-    text(weight: "medium")[Client:], inline_field("client_name", width: 100%),
-    text(weight: "medium")[Address:], inline_field("client_address", width: 100%),
-    text(weight: "medium")[Email:], inline_field("client_email", width: 200pt),
-  )
+  #text(size: 16pt, weight: "bold", fill: primary, tracking: 0.5pt)[SERVICE AGREEMENT]
+  #v(2pt)
+  #text(size: 8pt, fill: text_muted)[Contract Reference: SA-2024-001]
 ]
 
 #v(0.6cm)
 
+// ============ PARTIES ============
+#text(size: 9pt, weight: "bold", fill: primary)[1. PARTIES]
+#v(0.2cm)
+
+This Service Agreement ("Agreement") is entered into on #inline_field("effective_date", width: 80pt) by and between:
+
+#v(0.25cm)
+
+#box(fill: primary_light, width: 100%, inset: 8pt, radius: 3pt)[
+  #grid(
+    columns: (60pt, 1fr),
+    row-gutter: 6pt,
+    text(size: 8pt, weight: "medium")[Provider:], inline_field("provider_name", width: 100%),
+    text(size: 8pt, weight: "medium")[Address:], inline_field("provider_address", width: 100%),
+    text(size: 8pt, weight: "medium")[Email:], inline_field("provider_email", width: 180pt),
+  )
+]
+
+#v(0.25cm)
+
+#box(fill: primary_light, width: 100%, inset: 8pt, radius: 3pt)[
+  #grid(
+    columns: (60pt, 1fr),
+    row-gutter: 6pt,
+    text(size: 8pt, weight: "medium")[Client:], inline_field("client_name", width: 100%),
+    text(size: 8pt, weight: "medium")[Address:], inline_field("client_address", width: 100%),
+    text(size: 8pt, weight: "medium")[Email:], inline_field("client_email", width: 180pt),
+  )
+]
+
+#v(0.4cm)
+
 // ============ SERVICES ============
-#text(size: 11pt, weight: "bold", fill: primary)[2. SERVICES]
-#v(0.3cm)
+#text(size: 9pt, weight: "bold", fill: primary)[2. SERVICES]
+#v(0.2cm)
 
 The Provider agrees to perform the following services:
 
-#v(0.3cm)
-#capture_field(field_name: "services_description", field_type: "textarea", fill_cell: true, min_height: 60pt)[
-  #box(width: 100%, height: 60pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt, inset: 8pt)[
-    #text(size: 10pt)[#get(ctx, "services_description")]
+#v(0.2cm)
+#capture_field(field_name: "services_description", field_type: "textarea", fill_cell: true, min_height: 45pt)[
+  #box(width: 100%, height: 45pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt, inset: 6pt)[
+    #text(size: 8pt)[#get(ctx, "services_description")]
   ]
 ]
 
-#v(0.6cm)
+#v(0.4cm)
 
 // ============ COMPENSATION ============
-#text(size: 11pt, weight: "bold", fill: primary)[3. COMPENSATION]
-#v(0.3cm)
+#text(size: 9pt, weight: "bold", fill: primary)[3. COMPENSATION]
+#v(0.2cm)
 
 #grid(
   columns: (1fr, 1fr),
-  column-gutter: 20pt,
+  column-gutter: 16pt,
   [
     Total Amount: #capture_field(field_name: "total_amount", field_type: "text", prefix: "$")[
-      #box(width: 100pt, height: 20pt, stroke: (bottom: 0.5pt + border_color), inset: (left: 2pt, bottom: 2pt))[
-        #text(size: 10pt)[\$ #get(ctx, "total_amount")]
+      #box(width: 80pt, height: 14pt, stroke: (bottom: 0.5pt + border_color), inset: (left: 2pt, bottom: 1pt))[
+        #text(size: 8pt)[\$ #get(ctx, "total_amount")]
       ]
     ]
   ],
   [
-    Payment Terms: #inline_field("payment_terms", width: 120pt)
+    Payment Terms: #inline_field("payment_terms", width: 100pt)
   ],
 )
 
-#v(0.6cm)
+#v(0.4cm)
 
 // ============ TERM ============
-#text(size: 11pt, weight: "bold", fill: primary)[4. TERM]
-#v(0.3cm)
+#text(size: 9pt, weight: "bold", fill: primary)[4. TERM]
+#v(0.2cm)
 
-This Agreement shall commence on #inline_field("start_date", width: 100pt) and shall continue until #inline_field("end_date", width: 100pt), unless terminated earlier in accordance with this Agreement.
+This Agreement shall commence on #inline_field("start_date", width: 80pt) and shall continue until #inline_field("end_date", width: 80pt), unless terminated earlier in accordance with this Agreement.
 
-#v(0.6cm)
+#v(0.4cm)
 
 // ============ ACKNOWLEDGMENTS ============
-#text(size: 11pt, weight: "bold", fill: primary)[5. ACKNOWLEDGMENTS]
-#v(0.3cm)
+#text(size: 9pt, weight: "bold", fill: primary)[5. ACKNOWLEDGMENTS]
+#v(0.2cm)
 
 #grid(
   columns: (auto, 1fr),
-  row-gutter: 10pt,
-  column-gutter: 8pt,
+  row-gutter: 6pt,
+  column-gutter: 6pt,
 
   capture_field(field_name: "ack_read", field_type: "checkbox")[
-    #box(width: 14pt, height: 14pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 2pt)
+    #box(width: 10pt, height: 10pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 2pt)
   ],
-  text(size: 9pt)[I have read and understand all terms of this Agreement.],
+  text(size: 8pt)[I have read and understand all terms of this Agreement.],
 
   capture_field(field_name: "ack_authority", field_type: "checkbox")[
-    #box(width: 14pt, height: 14pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 2pt)
+    #box(width: 10pt, height: 10pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 2pt)
   ],
-  text(size: 9pt)[I have the authority to enter into this Agreement on behalf of the party I represent.],
+  text(size: 8pt)[I have the authority to enter into this Agreement on behalf of the party I represent.],
 
   capture_field(field_name: "ack_binding", field_type: "checkbox")[
-    #box(width: 14pt, height: 14pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 2pt)
+    #box(width: 10pt, height: 10pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 2pt)
   ],
-  text(size: 9pt)[I agree that this Agreement is legally binding.],
+  text(size: 8pt)[I agree that this Agreement is legally binding.],
 )
 
-#v(1cm)
+#v(0.6cm)
 
 // ============ SIGNATURES ============
-#text(size: 11pt, weight: "bold", fill: primary)[6. SIGNATURES]
-#v(0.5cm)
+#text(size: 9pt, weight: "bold", fill: primary)[6. SIGNATURES]
+#v(0.3cm)
 
 #grid(
-  columns: (1fr, 40pt, 1fr),
+  columns: (1fr, 30pt, 1fr),
 
   // Provider signature
   [
-    #text(size: 9pt, weight: "medium", fill: text_muted)[PROVIDER]
-    #v(0.3cm)
+    #text(size: 7pt, weight: "medium", fill: text_muted, tracking: 0.3pt)[PROVIDER]
+    #v(0.2cm)
     #capture_field(field_name: "provider_signature", field_type: "text")[
-      #box(width: 100%, height: 50pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt)[
+      #box(width: 100%, height: 40pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt)[
         #align(center + horizon)[
-          #text(size: 8pt, fill: text_muted)[Signature]
+          #text(size: 7pt, fill: text_muted)[Signature]
         ]
       ]
     ]
-    #v(0.3cm)
+    #v(0.2cm)
     #grid(
-      columns: (50pt, 1fr),
-      row-gutter: 8pt,
-      text(size: 9pt)[Name:], inline_field("provider_signatory", width: 100%),
-      text(size: 9pt)[Date:], inline_field("provider_sign_date", width: 100pt),
+      columns: (36pt, 1fr),
+      row-gutter: 5pt,
+      text(size: 8pt)[Name:], inline_field("provider_signatory", width: 100%),
+      text(size: 8pt)[Date:], inline_field("provider_sign_date", width: 80pt),
     )
   ],
 
@@ -226,30 +226,30 @@ This Agreement shall commence on #inline_field("start_date", width: 100pt) and s
 
   // Client signature
   [
-    #text(size: 9pt, weight: "medium", fill: text_muted)[CLIENT]
-    #v(0.3cm)
+    #text(size: 7pt, weight: "medium", fill: text_muted, tracking: 0.3pt)[CLIENT]
+    #v(0.2cm)
     #capture_field(field_name: "client_signature", field_type: "text")[
-      #box(width: 100%, height: 50pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt)[
+      #box(width: 100%, height: 40pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt)[
         #align(center + horizon)[
-          #text(size: 8pt, fill: text_muted)[Signature]
+          #text(size: 7pt, fill: text_muted)[Signature]
         ]
       ]
     ]
-    #v(0.3cm)
+    #v(0.2cm)
     #grid(
-      columns: (50pt, 1fr),
-      row-gutter: 8pt,
-      text(size: 9pt)[Name:], inline_field("client_signatory", width: 100%),
-      text(size: 9pt)[Date:], inline_field("client_sign_date", width: 100pt),
+      columns: (36pt, 1fr),
+      row-gutter: 5pt,
+      text(size: 8pt)[Name:], inline_field("client_signatory", width: 100%),
+      text(size: 8pt)[Date:], inline_field("client_sign_date", width: 80pt),
     )
   ],
 )
 
-#v(1.5cm)
+#v(1cm)
 
 // ============ FOOTER ============
 #align(center)[
-  #text(size: 8pt, fill: text_muted)[
+  #text(size: 7pt, fill: text_muted)[
     Generated with #text(fill: primary)[typst-fillable]
   ]
 ]

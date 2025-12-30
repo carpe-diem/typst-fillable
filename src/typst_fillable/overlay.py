@@ -163,7 +163,7 @@ def create_form_overlay(
                 if group_name not in all_radio_groups:
                     all_radio_groups[group_name] = []
 
-                for button in buttons:
+                for idx, button in enumerate(buttons):
                     c.acroForm.radio(
                         name=group_name,
                         value=button["value"],
@@ -171,8 +171,9 @@ def create_form_overlay(
                         y=button["y"],
                         size=button["size"],
                         buttonStyle="check",
-                        borderWidth=style.border_width,
+                        borderWidth=None,
                         fillColor=light_grey_fill,
+                        borderColor=None,
                         forceBorder=False,
                         selected=False,
                         annotationFlags="print",

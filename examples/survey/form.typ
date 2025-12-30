@@ -73,91 +73,91 @@
 #let radio_option(name, group, label) = {
   box[
     #capture_field(field_name: name, field_type: "radio", group_name: group)[
-      #box(width: 16pt, height: 16pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 50%)
+      #box(width: 10pt, height: 10pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 50%)
     ]
-    #h(4pt)
-    #text(size: 9pt)[#label]
+    #h(3pt)
+    #text(size: 8pt)[#label]
   ]
 }
 
 #let checkbox_option(name, label) = {
   box[
     #capture_field(field_name: name, field_type: "checkbox")[
-      #box(width: 14pt, height: 14pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 2pt)
+      #box(width: 10pt, height: 10pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 2pt)
     ]
-    #h(4pt)
-    #text(size: 9pt)[#label]
+    #h(3pt)
+    #text(size: 8pt)[#label]
   ]
 }
 
 #let rating_scale(question_num, question_text, group_name) = {
   [
-    #text(weight: "bold", size: 10pt)[#question_num. #question_text]
-    #v(8pt)
+    #text(weight: "bold", size: 8pt)[#question_num. #question_text]
+    #v(3pt)
     #grid(
       columns: (1fr, 1fr, 1fr, 1fr, 1fr),
       align: center,
-      row-gutter: 6pt,
+      row-gutter: 2pt,
       radio_option(group_name + "_1", group_name, ""),
       radio_option(group_name + "_2", group_name, ""),
       radio_option(group_name + "_3", group_name, ""),
       radio_option(group_name + "_4", group_name, ""),
       radio_option(group_name + "_5", group_name, ""),
-      text(size: 8pt, fill: text_muted)[Very Poor],
-      text(size: 8pt, fill: text_muted)[Poor],
-      text(size: 8pt, fill: text_muted)[Neutral],
-      text(size: 8pt, fill: text_muted)[Good],
-      text(size: 8pt, fill: text_muted)[Excellent],
+      text(size: 6pt, fill: text_muted)[Very Poor],
+      text(size: 6pt, fill: text_muted)[Poor],
+      text(size: 6pt, fill: text_muted)[Neutral],
+      text(size: 6pt, fill: text_muted)[Good],
+      text(size: 6pt, fill: text_muted)[Excellent],
     )
-    #v(0.6cm)
+    #v(0.25cm)
   ]
 }
 
 // ============ PAGE SETUP ============
-#set page(margin: (top: 2cm, bottom: 2cm, left: 2.5cm, right: 2.5cm))
-#set text(font: "Helvetica", size: 10pt, fill: text_dark)
+#set page(margin: (top: 1.2cm, bottom: 1.2cm, left: 1.8cm, right: 1.8cm))
+#set text(font: "Helvetica", size: 9pt, fill: text_dark)
 
 // ============ HEADER ============
 #align(center)[
-  #box(fill: primary, width: 100%, inset: 20pt, radius: 4pt)[
-    #text(size: 22pt, weight: "bold", fill: white)[Customer Satisfaction Survey]
-    #v(4pt)
-    #text(size: 11pt, fill: white.transparentize(20%))[Help us improve our services]
+  #box(fill: primary, width: 100%, inset: 10pt, radius: 3pt)[
+    #text(size: 14pt, weight: "bold", fill: white)[Customer Satisfaction Survey]
+    #v(1pt)
+    #text(size: 8pt, fill: white.transparentize(20%))[Help us improve our services]
   ]
 ]
 
-#v(0.8cm)
+#v(0.3cm)
 
-#box(fill: primary_light, width: 100%, inset: 12pt, radius: 4pt)[
-  #text(size: 9pt, fill: text_muted)[
+#box(fill: primary_light, width: 100%, inset: 8pt, radius: 3pt)[
+  #text(size: 7pt, fill: text_muted)[
     Please take a few minutes to complete this survey. Your feedback is valuable to us.
     Rate each aspect from 1 (Very Poor) to 5 (Excellent).
   ]
 ]
 
-#v(1cm)
+#v(0.4cm)
 
 // ============ SECTION 1: SERVICE QUALITY ============
-#text(size: 12pt, weight: "bold", fill: primary)[Section 1: Service Quality]
-#v(2pt)
+#text(size: 8pt, weight: "bold", fill: primary)[Section 1: Service Quality]
+#v(1pt)
 #line(length: 100%, stroke: 0.5pt + primary_light)
-#v(0.5cm)
+#v(0.25cm)
 
 #rating_scale("1", "How would you rate our overall service?", "q1_service")
 #rating_scale("2", "How responsive was our support team?", "q2_response")
 #rating_scale("3", "How would you rate the quality of our product?", "q3_quality")
 
 // ============ SECTION 2: EXPERIENCE ============
-#text(size: 12pt, weight: "bold", fill: primary)[Section 2: Your Experience]
-#v(2pt)
+#text(size: 8pt, weight: "bold", fill: primary)[Section 2: Your Experience]
+#v(1pt)
 #line(length: 100%, stroke: 0.5pt + primary_light)
-#v(0.5cm)
+#v(0.25cm)
 
-#text(weight: "bold", size: 10pt)[4. How did you hear about us?]
-#v(6pt)
+#text(weight: "bold", size: 8pt)[4. How did you hear about us?]
+#v(3pt)
 #grid(
-  columns: (1fr, 1fr),
-  row-gutter: 8pt,
+  columns: (1fr, 1fr, 1fr),
+  row-gutter: 4pt,
   checkbox_option("source_search", "Search Engine"),
   checkbox_option("source_social", "Social Media"),
   checkbox_option("source_friend", "Friend/Colleague"),
@@ -166,62 +166,66 @@
   checkbox_option("source_other", "Other"),
 )
 
-#v(0.8cm)
+#v(0.3cm)
 
-#text(weight: "bold", size: 10pt)[5. Would you recommend us to others?]
-#v(8pt)
+#text(weight: "bold", size: 8pt)[5. Would you recommend us to others?]
+#v(3pt)
 #grid(
   columns: (auto, auto, auto),
-  column-gutter: 30pt,
+  column-gutter: 20pt,
   radio_option("recommend_yes", "recommend", "Yes, definitely"),
   radio_option("recommend_maybe", "recommend", "Maybe"),
   radio_option("recommend_no", "recommend", "No"),
 )
 
-#v(1cm)
+#v(0.35cm)
 
 // ============ SECTION 3: COMMENTS ============
-#text(size: 12pt, weight: "bold", fill: primary)[Section 3: Additional Feedback]
-#v(2pt)
+#text(size: 8pt, weight: "bold", fill: primary)[Section 3: Additional Feedback]
+#v(1pt)
 #line(length: 100%, stroke: 0.5pt + primary_light)
-#v(0.5cm)
+#v(0.25cm)
 
-#text(weight: "bold", size: 10pt)[6. What did you like most about our service?]
-#v(4pt)
-#capture_field(field_name: "liked_most", field_type: "textarea", fill_cell: true, min_height: 50pt)[
-  #box(width: 100%, height: 50pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt, inset: 8pt)[
-    #text(size: 10pt)[#get(ctx, "liked_most")]
+#text(weight: "bold", size: 8pt)[6. What did you like most about our service?]
+#v(2pt)
+#capture_field(field_name: "liked_most", field_type: "textarea", fill_cell: true, min_height: 32pt)[
+  #box(width: 100%, height: 32pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt, inset: 5pt)[
+    #text(size: 8pt)[#get(ctx, "liked_most")]
   ]
 ]
 
-#v(0.6cm)
+#v(0.25cm)
 
-#text(weight: "bold", size: 10pt)[7. What could we improve?]
-#v(4pt)
-#capture_field(field_name: "improvements", field_type: "textarea", fill_cell: true, min_height: 50pt)[
-  #box(width: 100%, height: 50pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt, inset: 8pt)[
-    #text(size: 10pt)[#get(ctx, "improvements")]
+#text(weight: "bold", size: 8pt)[7. What could we improve?]
+#v(2pt)
+#capture_field(field_name: "improvements", field_type: "textarea", fill_cell: true, min_height: 32pt)[
+  #box(width: 100%, height: 32pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt, inset: 5pt)[
+    #text(size: 8pt)[#get(ctx, "improvements")]
   ]
 ]
 
-#v(1cm)
+#v(0.35cm)
 
 // ============ CONTACT (OPTIONAL) ============
-#box(fill: primary_light, width: 100%, inset: 14pt, radius: 4pt)[
-  #text(size: 10pt, weight: "medium")[Optional: Leave your email for follow-up]
-  #v(6pt)
-  #capture_field(field_name: "email", field_type: "text")[
-    #box(width: 250pt, height: 26pt, stroke: 0.5pt + primary, fill: white, radius: 4pt, inset: 6pt)[
-      #text(size: 10pt)[#get(ctx, "email")]
-    ]
-  ]
+#box(fill: primary_light, width: 100%, inset: 8pt, radius: 3pt)[
+  #grid(
+    columns: (auto, 1fr),
+    column-gutter: 10pt,
+    align: horizon,
+    text(size: 8pt, weight: "medium")[Optional: Leave your email for follow-up],
+    capture_field(field_name: "email", field_type: "text")[
+      #box(width: 180pt, height: 16pt, stroke: 0.5pt + primary, fill: white, radius: 3pt, inset: 4pt)[
+        #text(size: 8pt)[#get(ctx, "email")]
+      ]
+    ],
+  )
 ]
 
-#v(1.5cm)
+#v(0.5cm)
 
 // ============ FOOTER ============
 #align(center)[
-  #text(size: 8pt, fill: text_muted)[
+  #text(size: 7pt, fill: text_muted)[
     Thank you for your feedback! — Generated with #text(fill: primary)[typst-fillable]
   ]
 ]

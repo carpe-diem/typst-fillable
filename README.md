@@ -8,6 +8,59 @@
 
 Add interactive form fields to Typst-generated PDFs.
 
+## Quick Example
+
+![Demo](assets/demo.gif)
+
+**Typst template (`contract.typ`):**
+```typst
+#let capture_field(field_name: "", field_type: "text", content) = {
+  box({
+    context {
+      let pos = here().position()
+      let size = measure(content)
+      metadata((
+        fieldName: field_name, fieldType: field_type,
+        dimensions: (width: size.width, height: size.height),
+        pos: (page: pos.page, x: pos.x, y: pos.y),
+      ))
+    }
+    content
+  })
+}
+
+= Service Agreement
+
+This Agreement is entered into on
+#capture_field(field_name: "date", field_type: "text")[
+  #box(width: 80pt, height: 14pt, stroke: (bottom: 0.5pt))
+] by:
+
+*Provider:* #capture_field(field_name: "provider", field_type: "text")[
+  #box(width: 200pt, height: 14pt, stroke: (bottom: 0.5pt))
+]
+
+*Client:* #capture_field(field_name: "client", field_type: "text")[
+  #box(width: 200pt, height: 14pt, stroke: (bottom: 0.5pt))
+]
+
+#capture_field(field_name: "agree", field_type: "checkbox")[
+  #box(width: 10pt, height: 10pt, stroke: 0.5pt)
+] I agree to the terms
+```
+
+**Python:**
+```python
+from typst_fillable import make_fillable
+
+pdf = make_fillable(template="contract.typ", context={})
+
+with open("fillable.pdf", "wb") as f:
+    f.write(pdf)
+```
+
+Open `fillable.pdf` in any PDF reader and start typing!
+
 ## Overview
 
 `typst-fillable` is a Python library that transforms static Typst PDFs into interactive fillable forms. It extracts field position metadata embedded in Typst templates and overlays interactive AcroForm fields using ReportLab.

@@ -70,156 +70,156 @@
 }
 
 // ============ PAGE SETUP ============
-#set page(margin: (top: 2cm, bottom: 2cm, left: 2.5cm, right: 2.5cm))
-#set text(font: "Helvetica", size: 10pt, fill: text_dark)
+#set page(margin: (top: 1.5cm, bottom: 1.5cm, left: 2cm, right: 2cm))
+#set text(font: "Helvetica", size: 9pt, fill: text_dark)
 
 // ============ HEADER ============
 #align(center)[
-  #box(fill: accent, width: 100%, inset: 20pt, radius: 4pt)[
-    #text(size: 22pt, weight: "bold", fill: white)[Contact Us]
-    #v(4pt)
-    #text(size: 11pt, fill: white.transparentize(20%))[We'd love to hear from you]
+  #box(fill: accent, width: 100%, inset: 14pt, radius: 3pt)[
+    #text(size: 16pt, weight: "bold", fill: white)[Contact Us]
+    #v(2pt)
+    #text(size: 9pt, fill: white.transparentize(20%))[We'd love to hear from you]
   ]
 ]
 
-#v(1.2cm)
+#v(0.8cm)
 
 // ============ PERSONAL INFORMATION ============
-#text(size: 12pt, weight: "bold", fill: accent)[Personal Information]
+#text(size: 9pt, weight: "bold", fill: accent)[Personal Information]
 #v(2pt)
 #line(length: 100%, stroke: 0.5pt + accent_light)
-#v(0.5cm)
+#v(0.4cm)
 
 #grid(
   columns: (1fr, 1fr),
-  column-gutter: 20pt,
-  row-gutter: 14pt,
+  column-gutter: 16pt,
+  row-gutter: 10pt,
 
   [
-    #text(size: 9pt, fill: text_muted)[Full Name #text(fill: rgb("#EF4444"))[\*]]
-    #v(4pt)
+    #text(size: 8pt, fill: text_muted)[Full Name #text(fill: rgb("#EF4444"))[\*]]
+    #v(2pt)
     #capture_field(field_name: "full_name", field_type: "text")[
-      #box(width: 100%, height: 28pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt, inset: 6pt)[
-        #text(size: 10pt)[#get(ctx, "full_name")]
+      #box(width: 100%, height: 20pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt, inset: 4pt)[
+        #text(size: 8pt)[#get(ctx, "full_name")]
       ]
     ]
   ],
   [
-    #text(size: 9pt, fill: text_muted)[Email Address #text(fill: rgb("#EF4444"))[\*]]
-    #v(4pt)
+    #text(size: 8pt, fill: text_muted)[Email Address #text(fill: rgb("#EF4444"))[\*]]
+    #v(2pt)
     #capture_field(field_name: "email", field_type: "text")[
-      #box(width: 100%, height: 28pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt, inset: 6pt)[
-        #text(size: 10pt)[#get(ctx, "email")]
+      #box(width: 100%, height: 20pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt, inset: 4pt)[
+        #text(size: 8pt)[#get(ctx, "email")]
       ]
     ]
   ],
   [
-    #text(size: 9pt, fill: text_muted)[Phone Number]
-    #v(4pt)
+    #text(size: 8pt, fill: text_muted)[Phone Number]
+    #v(2pt)
     #capture_field(field_name: "phone", field_type: "text")[
-      #box(width: 100%, height: 28pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt, inset: 6pt)[
-        #text(size: 10pt)[#get(ctx, "phone")]
+      #box(width: 100%, height: 20pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt, inset: 4pt)[
+        #text(size: 8pt)[#get(ctx, "phone")]
       ]
     ]
   ],
   [
-    #text(size: 9pt, fill: text_muted)[Company]
-    #v(4pt)
+    #text(size: 8pt, fill: text_muted)[Company]
+    #v(2pt)
     #capture_field(field_name: "company", field_type: "text")[
-      #box(width: 100%, height: 28pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt, inset: 6pt)[
-        #text(size: 10pt)[#get(ctx, "company")]
+      #box(width: 100%, height: 20pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt, inset: 4pt)[
+        #text(size: 8pt)[#get(ctx, "company")]
       ]
     ]
   ],
 )
 
-#v(0.8cm)
+#v(0.6cm)
 
 // ============ CONTACT PREFERENCES ============
-#text(size: 12pt, weight: "bold", fill: accent)[Contact Preferences]
+#text(size: 9pt, weight: "bold", fill: accent)[Contact Preferences]
 #v(2pt)
 #line(length: 100%, stroke: 0.5pt + accent_light)
-#v(0.5cm)
+#v(0.4cm)
 
-#text(size: 9pt, fill: text_muted)[Preferred contact method]
-#v(6pt)
+#text(size: 8pt, fill: text_muted)[Preferred contact method]
+#v(4pt)
 
 #grid(
   columns: (auto, auto, auto),
-  column-gutter: 25pt,
+  column-gutter: 20pt,
   [
     #capture_field(field_name: "contact_email", field_type: "radio", group_name: "contact_method")[
-      #box(width: 14pt, height: 14pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 50%)
+      #box(width: 10pt, height: 10pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 50%)
     ]
-    #h(5pt) #text(size: 10pt)[Email]
+    #h(4pt) #text(size: 8pt)[Email]
   ],
   [
     #capture_field(field_name: "contact_phone", field_type: "radio", group_name: "contact_method")[
-      #box(width: 14pt, height: 14pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 50%)
+      #box(width: 10pt, height: 10pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 50%)
     ]
-    #h(5pt) #text(size: 10pt)[Phone]
+    #h(4pt) #text(size: 8pt)[Phone]
   ],
   [
     #capture_field(field_name: "contact_either", field_type: "radio", group_name: "contact_method")[
-      #box(width: 14pt, height: 14pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 50%)
+      #box(width: 10pt, height: 10pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 50%)
     ]
-    #h(5pt) #text(size: 10pt)[Either]
+    #h(4pt) #text(size: 8pt)[Either]
   ],
 )
 
-#v(0.8cm)
+#v(0.6cm)
 
 // ============ MESSAGE ============
-#text(size: 12pt, weight: "bold", fill: accent)[Your Message]
+#text(size: 9pt, weight: "bold", fill: accent)[Your Message]
 #v(2pt)
 #line(length: 100%, stroke: 0.5pt + accent_light)
-#v(0.5cm)
+#v(0.4cm)
 
-#text(size: 9pt, fill: text_muted)[How can we help you? #text(fill: rgb("#EF4444"))[\*]]
-#v(4pt)
+#text(size: 8pt, fill: text_muted)[How can we help you? #text(fill: rgb("#EF4444"))[\*]]
+#v(3pt)
 
-#capture_field(field_name: "message", field_type: "textarea", fill_cell: true, min_height: 80pt)[
-  #box(width: 100%, height: 80pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 4pt, inset: 8pt)[
-    #text(size: 10pt)[#get(ctx, "message")]
+#capture_field(field_name: "message", field_type: "textarea", fill_cell: true, min_height: 60pt)[
+  #box(width: 100%, height: 60pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt, inset: 6pt)[
+    #text(size: 8pt)[#get(ctx, "message")]
   ]
-]
-
-#v(0.8cm)
-
-// ============ NEWSLETTER ============
-#box(fill: accent_light, width: 100%, inset: 14pt, radius: 4pt)[
-  #grid(
-    columns: (auto, 1fr),
-    column-gutter: 10pt,
-    align: horizon,
-    capture_field(field_name: "newsletter", field_type: "checkbox")[
-      #box(width: 16pt, height: 16pt, stroke: 0.5pt + accent, fill: white, radius: 3pt)
-    ],
-    [
-      #text(size: 10pt, weight: "medium")[Subscribe to our newsletter]
-      #h(8pt)
-      #text(size: 9pt, fill: text_muted)[Get updates about products and services]
-    ],
-  )
 ]
 
 #v(0.6cm)
 
+// ============ NEWSLETTER ============
+#box(fill: accent_light, width: 100%, inset: 10pt, radius: 3pt)[
+  #grid(
+    columns: (auto, 1fr),
+    column-gutter: 8pt,
+    align: horizon,
+    capture_field(field_name: "newsletter", field_type: "checkbox")[
+      #box(width: 12pt, height: 12pt, stroke: 0.5pt + accent, fill: white, radius: 2pt)
+    ],
+    [
+      #text(size: 8pt, weight: "medium")[Subscribe to our newsletter]
+      #h(6pt)
+      #text(size: 7pt, fill: text_muted)[Get updates about products and services]
+    ],
+  )
+]
+
+#v(0.4cm)
+
 // ============ TERMS ============
 #grid(
   columns: (auto, 1fr),
-  column-gutter: 8pt,
+  column-gutter: 6pt,
   capture_field(field_name: "terms", field_type: "checkbox")[
-    #box(width: 14pt, height: 14pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 3pt)
+    #box(width: 10pt, height: 10pt, stroke: 0.5pt + border_color, fill: field_bg, radius: 2pt)
   ],
-  text(size: 9pt)[I agree to the #text(fill: accent)[Terms of Service] and #text(fill: accent)[Privacy Policy] #text(fill: rgb("#EF4444"))[\*]],
+  text(size: 8pt)[I agree to the #text(fill: accent)[Terms of Service] and #text(fill: accent)[Privacy Policy] #text(fill: rgb("#EF4444"))[\*]],
 )
 
-#v(1.5cm)
+#v(1cm)
 
 // ============ FOOTER ============
 #align(center)[
-  #text(size: 8pt, fill: text_muted)[
+  #text(size: 7pt, fill: text_muted)[
     Generated with #text(fill: accent)[typst-fillable]
   ]
 ]
