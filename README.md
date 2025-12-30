@@ -3,8 +3,12 @@
 [![CI](https://github.com/carpe-diem/typst-fillable/actions/workflows/ci.yml/badge.svg)](https://github.com/carpe-diem/typst-fillable/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/carpe-diem/typst-fillable/branch/main/graph/badge.svg)](https://codecov.io/gh/carpe-diem/typst-fillable)
 [![PyPI version](https://badge.fury.io/py/typst-fillable.svg)](https://badge.fury.io/py/typst-fillable)
+[![Downloads](https://pepy.tech/badge/typst-fillable)](https://pepy.tech/project/typst-fillable)
+
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/carpe-diem/typst-fillable)](https://github.com/carpe-diem/typst-fillable/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/carpe-diem/typst-fillable)](https://github.com/carpe-diem/typst-fillable/issues)
 
 Add interactive form fields to Typst-generated PDFs.
 
