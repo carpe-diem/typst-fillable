@@ -24,7 +24,6 @@ def merge_with_overlay(base_pdf: bytes, form_overlay: BytesIO) -> bytes:
     """
     try:
         base_reader = PdfReader(BytesIO(base_pdf))
-        overlay_reader = PdfReader(form_overlay)
 
         writer = PdfWriter()
 
