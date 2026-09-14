@@ -118,6 +118,7 @@ def create_form_overlay(
                         annotationFlags="print",
                         fontSize=field_font_size,
                         fieldFlags="",
+                        maxlen=None,
                     )
                 elif field.fieldType == "textarea":
                     c.acroForm.textfield(
@@ -133,6 +134,7 @@ def create_form_overlay(
                         annotationFlags="print",
                         fontSize=style.font_size,
                         fieldFlags="multiline",
+                        maxlen=None,
                     )
                 elif field.fieldType == "checkbox":
                     c.acroForm.checkbox(
