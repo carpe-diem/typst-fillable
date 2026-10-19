@@ -48,7 +48,7 @@ def merge_with_overlay(base_pdf: bytes, form_overlay: BytesIO) -> bytes:
 
         # Remove the extra overlay pages (iterate in reverse to not mess up indices)
         for i in range(num_total_pages - 1, num_base_pages - 1, -1):
-            del writer.pages[i]
+            writer.remove_page(i)
 
         output = BytesIO()
         writer.write(output)

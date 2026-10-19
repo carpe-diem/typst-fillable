@@ -41,6 +41,9 @@ dev = [
     "twine>=5.0.0",
 ]
 
+[project.scripts]
+typst-fillable = "typst_fillable.cli:main"
+
 [project.urls]
 Homepage = "https://github.com/carpe-diem/typst-fillable"
 Documentation = "https://github.com/carpe-diem/typst-fillable#readme"

@@ -107,6 +107,28 @@ Email: #capture_field(field_name: "email", field_type: "text")[
 
 ### 2. Generate a fillable PDF
 
+#### CLI Usage
+
+`typst-fillable` can be used as a standalone command, so you can generate a fillable PDF without writing any Python — run it directly with e.g. `uvx`/`pipx`, or install it first:
+
+```bash
+# Run without installing, from PyPI
+uvx typst-fillable form.typ
+
+# Run without installing, from source
+uvx --from https://github.com/carpe-diem/typst-fillable.git typst-fillable form.typ
+
+# Or install it as a tool / package (from PyPI), first. Using uv or pip:
+uv tool install typst-fillable
+pip install typst-fillable
+
+typst-fillable form.typ
+```
+
+#### Library Usage
+
+You can also use `typst_fillable` as a library.
+
 ```python
 from typst_fillable import make_fillable
 
